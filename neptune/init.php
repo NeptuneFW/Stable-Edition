@@ -15,9 +15,9 @@ $classmap->generate(
 );
 
 $classmap = require ROOT.'neptune/autoload/classmap.php';
-
+// print_R($classmap);
 $autoload = new AutoloadRegister;
 $autoload->setClassMap($classmap);
-$autoload->registerClassMap($classmap);
-print_r(get_declared_classes());
+$autoload->registerClassMap();
 new PSR4();
+print_r(get_declared_classes());
