@@ -54,5 +54,3 @@ DB::connectDatabase([
   'database' => 'pixdus',
 	'charset' => 'utf8',
 ]);
-
-DB::table('pixdus_users')->get();
