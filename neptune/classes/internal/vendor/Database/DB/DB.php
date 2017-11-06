@@ -136,7 +136,7 @@ class DB
       case 'SELECT':
         $this->error = false;
 
-        if ($this->query = $this->conn->prepare($select)) {
+        if ($this->query = $this->conn->prepare($type)) {
           $x = 1;
 
           if (count($params)) {
