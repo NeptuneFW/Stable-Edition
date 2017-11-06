@@ -21,15 +21,21 @@ $loader->addNamespace('Sup\\', $definesList->ROOT.'neptune/classes/internal/vend
 // Database Classes Autoloads
 $loader->addNamespace('Database\\DB\\', $definesList->ROOT.'neptune/classes/internal/vendor/Database/DB');
 
+// FileSystem Classes Autoload
+$loader->addNamespace('FileSystem\\', $definesList->ROOT.'neptune/classes/internal/vendor/FileSystem');
+
 // Third Party Classes Autoload
 $loader->addNamespace('Psr\\Log\\', $definesList->ROOT.'neptune/classes/internal/thirdparty/php-fig/log');
 
 // Register Autoload
 $loader->register();
 
-// Set Larissa Privileges
+// Set Class Privileges
 PSR4::classPrivilege('Larissa\Run', 'LarissaRun');
 PSR4::classPrivilege('Larissa\Handler\PrettyPageHandler', 'LarissaPrettyPageHandler');
+PSR4::classPrivilege('Database\DB\DB', 'DB');
+PSR4::classPrivilege('FileSystem\File', 'File');
+PSR4::classPrivilege('FileSystem\Folder', 'Folder');
 
 /*
  * Larissa Error Handler için Whoops Error Handler kullanılmıştır.
@@ -45,7 +51,6 @@ $larissa = new LarissaRun;
 $larissa->pushHandler(new LarissaPrettyPageHandler);
 $larissa->register();
 
-PSR4::classPrivilege('Database\DB\DB', 'DB');
 
 DB::connectDatabase([
   'host' => '127.0.0.1',

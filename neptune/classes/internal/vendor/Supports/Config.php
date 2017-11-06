@@ -29,7 +29,7 @@ class Config
     $content = preg_replace(['/array \(/', '/\)/'], ['[', ']'], var_export($content, true));
 
     if ( ! file_exists($configDir.$name.'.php') ) {
-      file_put_contents($configDir.$name.'.php', sprintf('<?php return %s;', $content));
+      file_put_contents($configDir.$name.'.php', sprintf('<?php "'"\n\n"'" return %s;', $content));
     }
   }
   public static function delete($name)
